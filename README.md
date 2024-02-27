@@ -1,4 +1,4 @@
-# AirIMU
+# AirIMU Development
 Pre-trained model will be released soon.
 
 ## Installation

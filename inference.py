@@ -13,7 +13,6 @@ from datasets import collate_fcs, SeqeuncesDataset
 from model import net_dict
 from utils import *
 
-from graph import Integrator
 
 
 def inference(network, loader, confs):
@@ -59,7 +58,6 @@ if __name__ == '__main__':
     conf.train['sampling'] = False
     conf["gtinit"] = args.gtinit
     conf['device'] = args.device
-    Int = Integrator().double().to(args.device) # TODO
 
     '''
     Load the pretrained model

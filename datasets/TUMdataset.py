@@ -3,14 +3,15 @@ import torch
 import numpy as np
 import pypose as pp
 from utils import qinterp
+from .dataset import Sequence
 
-class TumSequence():
+class TUMVI(Sequence):
     """
     Output:
     acce: the accelaration in **world frame**
     """
     def __init__(self, data_root, data_name, intepolate = True, calib = False, glob_coord=False, **kwargs):
-        super(TumSequence, self).__init__()
+        super(TUMVI, self).__init__()
         (
             self.data_root, self.data_name,
             self.data,

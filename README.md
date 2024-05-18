@@ -38,6 +38,7 @@ https://www.cvlibs.net/datasets/kitti/
 ## Train
 
 Easy way to start the training using the exisiting configuration.
+> **Note**:You can also create your own configuration file for different datasets and set the parameters accordingly.
 
 ```
 python train.py --config configs/exp/EuRoC/codenet.conf

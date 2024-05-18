@@ -12,7 +12,8 @@
     - [Installation](#installation)
     - [Dataset](#dataset)
     - [Train](#train)
-    - [Evaluation Result](#evaluation)
+    - [Evaluate Result](#evaluation)
+
 
 
 

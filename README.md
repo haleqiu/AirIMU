@@ -1,5 +1,9 @@
 # AirIMU
-Pre-trained model will be released soon.
+[![License: BSD 3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-yellow.svg)](./LICENSE)
+[![AirIMU website](https://airimu.github.io/)
+
+![ALTO](./doc/alto.gif)
+
 
 ## Installation
 

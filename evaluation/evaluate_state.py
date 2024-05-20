@@ -20,10 +20,10 @@ from utils.visualize_state import visualize_rotations, visualize_state_error
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--device", type=str, default="cpu", help="cuda or cpu, Default is cuda:0")
-    parser.add_argument("--exp", type=str, default=None, help="experiment name")
-    parser.add_argument("--seqlen", type=int, default="200", help="the length of the segment")
-    parser.add_argument("--dataconf", type=str, default="configs/datasets/SubTDataset/SubT_UGV1_final_half.conf", help="the configuration of the dataset")
-    parser.add_argument("--savedir",type=str,default = "./result/loss_result",help = "experiment name")
+    parser.add_argument("--exp", type=str, default=None, help="the directory path where your network output pickle file is stored")
+    parser.add_argument("--seqlen", type=int, default="200", help="the length of the integration sequence")
+    parser.add_argument("--dataconf", type=str, default="configs/datasets/BaselineEuroc/Euroc_1000.conf", help="the configuration of the dataset")
+    parser.add_argument("--savedir",type=str,default = "./result/loss_result",help = "the save diretory for the evaluation results")
     parser.add_argument("--usegtrot", action="store_true", help="Use ground truth rotation for gravity compensation")
     parser.add_argument("--mask", action="store_true", help="Mask the segments if needed")
     

@@ -4,17 +4,7 @@
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=fTX1u-e7wtU)
 [![arXiv](https://img.shields.io/badge/arXiv-AirIMU-b31b1b.svg)](https://arxiv.org/abs/2310.04874)
 
-![ALTO](./doc/alto.gif)
-
-## Table of contents
-
-- [AirIMU: Learning Uncertainty Propagation for Inertial Odometry](#airimu)
-    - [Installation](#installation)
-    - [Dataset](#dataset)
-    - [Train](#train)
-    - [Evaluate Result](#evaluation)
-
-
+![AirIMU](./doc/model.png)
 
 
 ## Installation

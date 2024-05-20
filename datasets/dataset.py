@@ -1,31 +1,32 @@
-import torch
-import numpy as np
-
 import argparse
+from abc import ABC, abstractmethod
 
+import numpy as np
+import torch
 import torch.utils.data as Data
 from pyhocon import ConfigFactory
 
-from datasets.EuRoCdataset import EurocSequence
-from datasets.KITTIdataset import KITTISequence
-from datasets.TUMdataset import TumSequence
 
+class Sequence(ABC):
+    # Dictionary to keep track of subclasses
+    subclasses = {}
+
+    def __init_subclass__(cls, **kwargs):
+        super().__init_subclass__(**kwargs)
+        cls.subclasses[cls.__name__] = cls
 
 class SeqDataset(Data.Dataset):
     def __init__(self, root, dataname, devive = 'cpu', name='Nav', duration=200, step_size=200, mode='inference', 
                     drop_last = True, conf = {}):
         super().__init__()
 
-        self.DataClass = {
-            'KITTI': KITTISequence,
-            'TUMVI': TumSequence,
-            'Euroc':EurocSequence,
-        }
+        self.DataClass = Sequence.subclasses
+        
         self.conf = conf
         self.seq = self.DataClass[name](root, dataname, **self.conf)
         self.data = self.seq.data
         self.seqlen = self.seq.get_length()-1
-
+        self.gravity = conf.gravity if "gravity" in conf.keys() else 9.81007
         if duration is None: self.duration = self.seqlen
         else: self.duration = duration
         
@@ -70,12 +71,15 @@ class SeqDataset(Data.Dataset):
 
     def get_mask(self):
         return self.data['mask']
+    
+    def get_gravity(self):
+        return self.gravity
 
 
 class SeqInfDataset(SeqDataset):
     def __init__(self, root, dataname, inference_state, device =  'cpu', name='Nav', duration=200, step_size=200, 
-                            drop_last = True, mode='inference', usecov = True, useraw = False):
-        super().__init__(root, dataname, device, name, duration, step_size, mode, drop_last)
+                            drop_last = True, mode='inference', usecov = True, useraw = False,conf={}):
+        super().__init__(root, dataname, device, name, duration, step_size, mode, drop_last, conf)
         self.data['acc'][:-1] += inference_state['correction_acc'].cpu()[0]
         self.data['gyro'][:-1] += inference_state['correction_gyro'].cpu()[0]
        
@@ -108,16 +112,13 @@ class SeqeuncesDataset(Data.Dataset):
         self.uni = torch.distributions.uniform.Uniform(-torch.ones(1), torch.ones(1))
         self.device = device
         self.conf = data_set_config
+        self.gravity = conf.gravity if "gravity" in conf.keys() else 9.81007
         if mode is None:
             self.mode = data_set_config.mode
         else:
             self.mode = mode
 
-        self.DataClass = {
-            'Euroc': EurocSequence,
-            'TUMVI': TumSequence,
-            'KITTI': KITTISequence,
-        }
+        self.DataClass = Sequence.subclasses
 
         ## the design of datapath provide a quick way to revisit a specific sequence, but introduce some inconsistency
         if data_path is None:
@@ -236,6 +237,7 @@ class SeqeuncesDataset(Data.Dataset):
 
     def get_dtype(self):
         return self.acc[0].dtype
+    
 
 
 if __name__ == '__main__':

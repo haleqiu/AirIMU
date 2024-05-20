@@ -5,8 +5,8 @@ import pypose as pp
 import pykitti
 from datetime import datetime
 
-
-class KITTISequence():
+from .dataset import Sequence
+class KITTI(Sequence):
     def __init__(self, data_root, data_drive, **kwargs) -> None:
         (   
             self.data_root, self.data_date, self.drive,

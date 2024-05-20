@@ -13,7 +13,6 @@ from datasets import collate_fcs, SeqeuncesDataset
 from model import net_dict
 from utils import *
 
-from graph import Integrator
 
 
 def inference(network, loader, confs):
@@ -41,11 +40,11 @@ def inference(network, loader, confs):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--config', type=str, default='configs/exp3/code_uncalib_1000_s50_inte10.conf', help='config file path')
+    parser.add_argument('--config', type=str, default='configs/exp/EuRoC/codenet.conf', help='config file path')
     parser.add_argument('--load', type=str, default=None, help='path for model check point')
     parser.add_argument("--device", type=str, default="cuda:0", help="cuda or cpu")
     parser.add_argument('--batch_size', type=int, default=1, help='batch size.')
-    parser.add_argument('--seqlen', type=int, default=1000, help='batch size.')
+    parser.add_argument('--seqlen', type=int, default=1000, help='the length of the segment')
     parser.add_argument('--train', default=False, action="store_true", help='if True, We will evaluate the training set (may be removed in the future).')
     parser.add_argument('--gtinit', default=True, action="store_false", help='if set False, we will use the integrated pose as the intial pose for the next integral')
     parser.add_argument('--whole', default=False, action="store_true", help='(may be removed in the future).')
@@ -59,7 +58,6 @@ if __name__ == '__main__':
     conf.train['sampling'] = False
     conf["gtinit"] = args.gtinit
     conf['device'] = args.device
-    Int = Integrator().double().to(args.device) # TODO
 
     '''
     Load the pretrained model

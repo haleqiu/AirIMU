@@ -3,14 +3,15 @@ import torch
 import numpy as np
 import pypose as pp
 from utils import qinterp, lookAt
+from .dataset import Sequence
 
-class EurocSequence():
+class Euroc(Sequence):
     """
     Output:
     acce: the accelaration in **world frame**
     """
     def __init__(self, data_root, data_name, intepolate = True, calib = False, load_vicon = False, glob_coord=False, **kwargs):
-        super(EurocSequence, self).__init__()
+        super(Euroc, self).__init__()
         (   
             self.data_root, self.data_name,
             self.data,

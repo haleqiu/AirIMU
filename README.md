@@ -1,4 +1,4 @@
-# AirIMU
+# AirIMU : Learning Uncertainty Propagation for Inertial Odometry
 [![License: BSD 3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-yellow.svg)](./LICENSE)
 [![githubio](https://img.shields.io/badge/-website-blue?logo=Github&color=grey)](https://airimu.github.io/)
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=fTX1u-e7wtU)

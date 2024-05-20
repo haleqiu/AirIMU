@@ -26,6 +26,9 @@ Download the KITTI dataset from:
 https://www.cvlibs.net/datasets/kitti/
 
 ## Pretrained Model
+> **Note**: You can download our trained ckpt here.
+
+
 [KITTI](https://github.com/sleepycan/AirIMU/releases/download/pretrained_model/KITTI_odom_model.zip)
 
 [EuRoC](https://github.com/sleepycan/AirIMU/releases/download/pretrained_model_euroc/EuRoCWholeaug.zip)

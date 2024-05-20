@@ -40,7 +40,6 @@ Easy way to start the training using the exisiting configuration.
 
 ```
 python train.py --config configs/exp/EuRoC/codenet.conf
-
 ```
 
 More specific option:
@@ -61,7 +60,6 @@ optional arguments:
 To evaluate the model and generate network inference file net_output.pickle, run the following command:
 ```
 python inference.py --config configs/exp/EuRoC/codenet.conf
-
 ```
 
 <br>
@@ -71,7 +69,6 @@ You can use the evaluation tool to assess your model performance with net_output
 
 ```
 python evaluation/evaluate_state.py --dataconf configs/datasets/${DATASET}/${DATASET}.conf --exp path/to/net_output_directory
-
 ```
 
 <br>

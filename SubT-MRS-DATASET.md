@@ -66,3 +66,8 @@ In our experiments, we selected the multi-agent UGV datasets from the LiDAR-iner
 
 ##### IMU Calibration
 Used the M-G365 inertial sensor1 on our platform and calibrate it to reduce bias instability and drift. Employed an Allan variance[https://ieeexplore.ieee.org/document/4404126] based tool2 to estimate the white noise angle random walk and bias instability for both the gyroscope and accelerometer data.
+
+#### References
+We would like to acknowledge the use of the SubT-MRS Dataset(SubT-MRS Dataset: Pushing SLAM Towards All-weather Environments) in our project. We have segmented and adjusted a portion of original dataset to create our own version. For more details about the original dataset, please refer to the following [paper](https://arxiv.org/abs/2307.07607) and [website](https://superodometry.com/datasets).
+
+

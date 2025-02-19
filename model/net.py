@@ -6,7 +6,7 @@ class ModelBase(nn.Module):
     def __init__(self, conf):
         super().__init__()
         self.conf = conf
-        if "ngravity" in conf.keys():
+        if "gravity" in conf.keys():
             self.integrator = pp.module.IMUPreintegrator(prop_cov=conf.propcov, reset=True, gravity = 0.0)
             print("conf.ngravity", conf.ngravity, self.integrator.gravity)
         else:

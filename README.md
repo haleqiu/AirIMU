@@ -36,6 +36,9 @@ https://cvg.cit.tum.de/data/datasets/visual-inertial-dataset
 Download the KITTI dataset from:
 https://www.cvlibs.net/datasets/kitti/
 
+Download the SubT-MRS dataset: [Download](https://github.com/sleepycan/AirIMU/releases/download/subt_dataset/SubT-MRS-Dataset.zip).   🎈You can find more information about SubT-MRS datasets from the links [here](SubT-MRS-DATASET.md).
+
+
 ## Pretrained Model
 > **Note**: You can download our trained ckpt here.
 
